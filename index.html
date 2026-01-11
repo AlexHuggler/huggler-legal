@@ -1,102 +1,741 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Center | Huggler Holdings LLC</title>
-    
+    <title>Privacy Policy | Huggler Holdings LLC</title>
+    <meta name="description" content="Privacy Policy for Huggler Holdings LLC - Transparent and secure software development adhering to the highest standards of data privacy.">
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        stone: {
-                            50: '#fafaf9',
-                            100: '#f5f5f4',
-                            200: '#e7e5e4',
-                            300: '#d6d3d1',
-                            800: '#292524',
-                            900: '#1c1917',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
 
     <style>
-        /* Custom Scrollbar for Webkit */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #fafaf9; }
-        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
-        
-        body {
-            background-color: #fafaf9; /* Stone-50 */
-            color: #1c1917; /* Stone-900 */
+        /* ========================================
+           CSS Custom Properties (Design Tokens)
+           ======================================== */
+        :root {
+            /* Colors - Warm neutral palette */
+            --color-bg: #fafaf9;
+            --color-bg-secondary: #f5f5f4;
+            --color-surface: rgba(255, 255, 255, 0.85);
+            --color-surface-hover: rgba(255, 255, 255, 0.95);
+            --color-border: rgba(214, 211, 209, 0.6);
+            --color-border-strong: rgba(168, 162, 158, 0.4);
+
+            --color-text-primary: #1c1917;
+            --color-text-secondary: #57534e;
+            --color-text-tertiary: #a8a29e;
+
+            /* Accent - Subtle warm tone */
+            --color-accent: #78716c;
+            --color-accent-subtle: rgba(120, 113, 108, 0.1);
+
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Spacing scale */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+
+            /* Border radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(231, 229, 228, 0.8);
+
+        /* ========================================
+           Reset & Base Styles
+           ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background-color: var(--color-accent-subtle);
+            color: var(--color-text-primary);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-border-strong);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-text-tertiary);
+        }
+
+        /* ========================================
+           Background Effects
+           ======================================== */
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-color: var(--color-bg);
+            background-image:
+                linear-gradient(to right, rgba(168, 162, 158, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 162, 158, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .bg-glow {
+            position: fixed;
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .bg-glow--top {
+            top: -200px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #e7e5e4 0%, #d6d3d1 100%);
+        }
+
+        .bg-glow--bottom {
+            bottom: -200px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(315deg, #e7e5e4 0%, #d6d3d1 100%);
+        }
+
+        /* ========================================
+           Navigation
+           ======================================== */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: var(--space-md) var(--space-lg);
+            background: rgba(250, 250, 249, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            transition: box-shadow var(--transition-base);
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+        }
+
+        .nav__brand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--color-text-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .nav__link {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+
+        .nav__link:hover {
+            color: var(--color-text-primary);
+            background: var(--color-accent-subtle);
+        }
+
+        .nav__link:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* ========================================
+           Layout
+           ======================================== */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: var(--space-4xl) var(--space-xl);
+            }
+        }
+
+        /* ========================================
+           Hero Section
+           ======================================== */
+        .hero {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs) var(--space-md);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero__badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        .hero__title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ========================================
+           Policy Content
+           ======================================== */
+        .policy {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .policy__header {
+            text-align: center;
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .policy__title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .policy__date {
+            font-size: 0.875rem;
+            color: var(--color-text-tertiary);
+        }
+
+        .policy__intro {
+            font-size: 1.0625rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           Cards
+           ======================================== */
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            background: var(--color-surface-hover);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card:hover {
+                transform: none;
+            }
+        }
+
+        .card__icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            transition: transform var(--transition-base);
+        }
+
+        .card:hover .card__icon {
+            transform: scale(1.05);
+        }
+
+        .card__icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-text-primary);
+        }
+
+        .card__number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .card__text {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .card__text strong {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        .card__list {
+            list-style: none;
+            margin-top: var(--space-md);
+        }
+
+        .card__list-item {
+            position: relative;
+            padding-left: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .card__list-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .card__list-item strong {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           Contact Section
+           ======================================== */
+        .contact {
+            text-align: center;
+            padding: var(--space-2xl);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .contact__text {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            font-size: 0.9375rem;
+        }
+
+        .contact__email {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: var(--color-text-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .contact__email:hover {
+            background: var(--color-text-secondary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact__email:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        .contact__email svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========================================
+           Footer
+           ======================================== */
+        .footer {
+            text-align: center;
+            padding: var(--space-3xl) var(--space-lg);
+            margin-top: var(--space-2xl);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer__text {
+            font-size: 0.875rem;
+            color: var(--color-text-tertiary);
+        }
+
+        .footer__text span {
+            display: inline-block;
+            margin: 0 var(--space-sm);
+            opacity: 0.5;
+        }
+
+        /* ========================================
+           Scroll Reveal Animation
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ========================================
+           Focus Styles (Accessibility)
+           ======================================== */
+        :focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-text-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            z-index: 1000;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: var(--space-md);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-stone-200 selection:text-stone-900" x-data="{ currentYear: new Date().getFullYear() }">
+<body>
+    <!-- Background effects -->
+    <div class="bg-pattern" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--top" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--bottom" aria-hidden="true"></div>
 
-    <div class="fixed inset-0 -z-10 h-full w-full bg-stone-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-    <div class="fixed left-0 top-0 -z-10 h-[500px] w-[500px] rounded-full bg-stone-200/50 blur-[100px] filter"></div>
-    <div class="fixed right-0 bottom-0 -z-10 h-[500px] w-[500px] rounded-full bg-stone-200/50 blur-[100px] filter"></div>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <main class="max-w-5xl mx-auto px-6 py-20 lg:py-32">
-        
-        <header class="mb-16 gs-reveal">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 border border-stone-200 mb-6">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-stone-500"></span>
-                </span>
-                <span class="text-xs font-medium text-stone-500 uppercase tracking-wider">Legal Center</span>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__container">
+            <a href="#" class="nav__brand" aria-label="Huggler Holdings LLC Home">
+                <span class="nav__brand-icon" aria-hidden="true">H</span>
+                <span>Huggler Holdings</span>
+            </a>
+            <a href="#contact" class="nav__link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container">
+        <!-- Hero Section -->
+        <header class="hero reveal">
+            <div class="hero__badge">
+                <span class="hero__badge-dot" aria-hidden="true"></span>
+                <span>Legal Center</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-semibold tracking-tight text-stone-900 mb-4">
-                Huggler Holdings LLC
-            </h1>
-            <p class="text-xl text-stone-500 max-w-2xl font-light">
-                Transparent and secure software development. Adhering to the highest standards of data privacy.
-            </p>
+            <h1 class="hero__title">Huggler Holdings LLC</h1>
+            <p class="hero__subtitle">Transparent and secure software development. Adhering to the highest standards of data privacy.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
+        <!-- Privacy Policy Content -->
+        <article class="policy" aria-label="Privacy Policy">
 
-            <div class="glass-card md:col-span-2 rounded-3xl p-8 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group gs-reveal">
-                <div class="flex items-start justify-between mb-6">
-                    <div class="p-3 bg-stone-100 rounded-2xl text-stone-900 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
-                    <span class="text-xs font-mono text-stone-400 border
+            <!-- Policy Header -->
+            <header class="policy__header reveal">
+                <h2 class="policy__title">Privacy Policy</h2>
+                <p class="policy__date">Last Updated: January 10, 2026</p>
+            </header>
+
+            <!-- Introduction -->
+            <section class="reveal">
+                <p class="policy__intro">
+                    This Privacy Policy describes how Huggler Holdings LLC ("we," "us," or "our") handles data for this mobile application. Huggler Holdings LLC is a Texas-based entity dedicated to transparent and secure software development. This policy outlines our commitment to your privacy across our digital products and entrepreneurial endeavors.
+                </p>
+            </section>
+
+            <!-- Section 1: Data Minimization -->
+            <section class="card reveal">
+                <div class="card__icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                    </svg>
+                </div>
+                <span class="card__number">Section 1</span>
+                <h3 class="card__title">Data Minimization & Privacy-First</h3>
+                <p class="card__text">
+                    We believe your data is private. Our core philosophy is <strong>data minimization</strong>: we only collect the absolute minimum data necessary to provide our services. This application is designed so that your personal information never leaves your device unless you explicitly choose to export or share it.
+                </p>
+            </section>
+
+            <!-- Section 2: Information We Do NOT Collect -->
+            <section class="card reveal">
+                <div class="card__icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                </div>
+                <span class="card__number">Section 2</span>
+                <h3 class="card__title">Information We Do NOT Collect</h3>
+                <p class="card__text">We are committed to protecting your privacy by not collecting unnecessary data:</p>
+                <ul class="card__list">
+                    <li class="card__list-item">
+                        <strong>Personal Usage Data:</strong> We do not collect, store, or have access to the specific entries, logs, or personal content you create within the app.
+                    </li>
+                    <li class="card__list-item">
+                        <strong>Personal Identifiers:</strong> We do not require an account, email registration, or login to use the features of this application.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Third-Party Services -->
+            <section class="card reveal">
+                <div class="card__icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+                    </svg>
+                </div>
+                <span class="card__number">Section 3</span>
+                <h3 class="card__title">Third-Party Services</h3>
+                <p class="card__text">
+                    We do not share your data with third-party advertisers or data brokers. Any data retrieved from system-level integrations (such as HealthKit, Calendars, or Location Services) is used strictly for the app's local functionality and is <strong>never used for marketing or advertising purposes</strong>.
+                </p>
+            </section>
+
+            <!-- Section 4: Texas Compliance -->
+            <section class="card reveal">
+                <div class="card__icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                    </svg>
+                </div>
+                <span class="card__number">Section 4</span>
+                <h3 class="card__title">Texas Data Privacy Compliance</h3>
+                <p class="card__text">
+                    We strictly adhere to the <strong>Texas Data Privacy and Security Act (TDPSA)</strong>. As a Texas LLC, we respect your rights to access, correct, and delete your personal data. Because we do not store your data on our servers, your "Right to Delete" is managed by you simply deleting the app or its data from your own device.
+                </p>
+            </section>
+
+            <!-- Section 5: Contact -->
+            <section id="contact" class="contact reveal">
+                <h3 class="contact__title">Contact & Support</h3>
+                <p class="contact__text">
+                    For legal inquiries, data requests, or technical support for any of our applications, please contact our centralized support desk.
+                </p>
+                <a href="mailto:contact@hugglerholdings.com" class="contact__email">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                    contact@hugglerholdings.com
+                </a>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__text">
+            &copy; 2026 Huggler Holdings LLC <span>|</span> Registered in the State of Texas, USA
+        </p>
+    </footer>
+
+    <!-- Minimal JavaScript for interactions -->
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('.nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // Scroll reveal animation (respects prefers-reduced-motion)
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            reveals.forEach(el => revealObserver.observe(el));
+        } else {
+            // If reduced motion is preferred, make all elements visible immediately
+            document.querySelectorAll('.reveal').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+    </script>
+</body>
+</html>
