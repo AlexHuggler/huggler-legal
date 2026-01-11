@@ -3,41 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Bladder Diary</title>
+    <title>Legal Center | Huggler Holdings LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; }
-        h1, h2 { color: #000; }
-        .contact { background: #f4f4f4; padding: 15px; border-radius: 8px; }
+        :root {
+            /* M3 Design Tokens (Color Palette) */
+            --md-sys-color-primary: #6750A4;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #EADDFF;
+            --md-sys-color-surface: #FEF7FF;
+            --md-sys-color-on-surface: #1D1B20;
+            --md-sys-color-surface-variant: #E7E0EC;
+            --md-sys-color-outline: #79747E;
+            
+            /* Elevation & Shape Tokens */
+            --md-sys-shape-corner-extra-large: 28px;
+            --md-sys-shape-corner-full: 100px;
+            --md-elevation-1: 0px 1px 3px 1px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3);
+        }
+
+        body {
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 840px;
+            width: 100%;
+            padding: 40px 24px;
+        }
+
+        /* M3 Headline Style */
+        h1 {
+            font-family: 'Google+Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 32px;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        /* M3 Card (Pill-shaped/Rounded) */
+        .policy-card {
+            background-color: var(--md-sys-color-surface-variant);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: 32px;
+            box-shadow: var(--md-elevation-1);
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-family: 'Google+Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        p, li {
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pill-shaped Button */
+        .contact-chip {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--md-sys-color-primary-container);
+            padding: 8px 16px;
+            border-radius: var(--md-sys-shape-corner-full);
+            color: var(--md-sys-color-primary);
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 16px;
+        }
+
+        .footer {
+            margin-top: 48px;
+            font-size: 0.875rem;
+            color: var(--md-sys-color-outline);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p><strong>Last Updated: January 10, 2026</strong></p>
-    <p>This Privacy Policy describes how <strong>Huggler Holdings LLC</strong> ("we," "us," or "our") handles data for the Bladder Diary mobile application.</p>
-    
-    <h2>1. Data Minimization & Privacy-First</h2>
-    <p>We believe your health data is private. Bladder Diary is designed so that your personal health information (PHI) never leaves your device unless you explicitly choose to export it.</p>
-    
-    <h2>2. Information We Do NOT Collect</h2>
-    <ul>
-        <li><strong>Health Data:</strong> We do not collect, store, or have access to any medical entries or diary logs you create. All data is stored locally on your device's internal storage.</li>
-        <li><strong>Personal Identifiers:</strong> We do not require an account or login to use the basic features of the app.</li>
-    </ul>
+    <div class="container">
+        <h1>Legal Center</h1>
+        <p><strong>Last Updated: January 11, 2026</strong></p>
 
-    <h2>3. Third-Party Services</h2>
-    <p>We do not share health data with third-party advertisers or data brokers. If the app uses Apple HealthKit, data retrieved from HealthKit is never used for marketing or advertising purposes.</p>
+        <section class="policy-card">
+            <h2>Master Privacy Policy</h2>
+            <p>Huggler Holdings LLC ("we," "our," or "us") is a Texas-based entity dedicated to transparent and secure software development. This Master Policy outlines our commitment to your privacy across all our digital products and entrepreneurial endeavors.</p>
+            
+            <p>We strictly adhere to the <strong>Texas Data Privacy and Security Act (TDPSA)</strong>. Our core philosophy is data minimization: we only collect the absolute minimum data necessary to provide our services.</p>
+        </section>
 
-    <h2>4. Your Consent</h2>
-    <p>By using the app, you consent to this local-only data storage model. You are responsible for the security of your device and the data stored upon it.</p>
+        <section class="policy-card">
+            <h2>Our Privacy Commitments</h2>
+            <ul>
+                <li><strong>Transparency:</strong> We provide app-specific disclosures for every product we launch.</li>
+                <li><strong>Security:</strong> We implement industry-standard encryption for any data transmitted or stored.</li>
+                <li><strong>Texas Compliance:</strong> As a Texas LLC, we respect your rights to access, correct, and delete your personal data under state law.</li>
+            </ul>
+        </section>
 
-    <div class="contact">
-        <h2>5. Contact & Support</h2>
-        <p>For questions regarding this policy or technical support, please contact:</p>
-        <p><strong>Huggler Holdings LLC</strong><br>
-        Email: <a href="mailto:contact@hugglerholdings.com">contact@hugglerholdings.com</a></p>
+        <section class="policy-card">
+            <h2>Contact Information</h2>
+            <p>For legal inquiries, data requests, or support for any of our applications, please contact our centralized support desk:</p>
+            <a href="mailto:contact@hugglerholdings.com" class="contact-chip">contact@hugglerholdings.com</a>
+        </section>
+
+        <div class="footer">
+            &copy; 2026 Huggler Holdings LLC | Registered in Texas, USA
+        </div>
     </div>
-
-    <hr>
-    <p>&copy; 2026 Huggler Holdings LLC. Registered in the State of Texas.</p>
 </body>
 </html>
