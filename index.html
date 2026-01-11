@@ -1,125 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Center | Huggler Holdings LLC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <style>
-        :root {
-            /* M3 Design Tokens (Color Palette) */
-            --md-sys-color-primary: #6750A4;
-            --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #EADDFF;
-            --md-sys-color-surface: #FEF7FF;
-            --md-sys-color-on-surface: #1D1B20;
-            --md-sys-color-surface-variant: #E7E0EC;
-            --md-sys-color-outline: #79747E;
-            
-            /* Elevation & Shape Tokens */
-            --md-sys-shape-corner-extra-large: 28px;
-            --md-sys-shape-corner-full: 100px;
-            --md-elevation-1: 0px 1px 3px 1px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3);
-        }
-
+        /* Custom Scrollbar for Webkit */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fafaf9; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+        
         body {
-            background-color: var(--md-sys-color-surface);
-            color: var(--md-sys-color-on-surface);
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
+            background-color: #fafaf9; /* Stone-50 */
+            color: #1c1917; /* Stone-900 */
         }
-
-        .container {
-            max-width: 840px;
-            width: 100%;
-            padding: 40px 24px;
-        }
-
-        /* M3 Headline Style */
-        h1 {
-            font-family: 'Google+Sans', sans-serif;
-            font-size: 3rem;
-            font-weight: 400;
-            margin-bottom: 32px;
-            color: var(--md-sys-color-on-surface);
-        }
-
-        /* M3 Card (Pill-shaped/Rounded) */
-        .policy-card {
-            background-color: var(--md-sys-color-surface-variant);
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            padding: 32px;
-            box-shadow: var(--md-elevation-1);
-            margin-bottom: 24px;
-        }
-
-        h2 {
-            font-family: 'Google+Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-top: 0;
-        }
-
-        p, li {
-            font-size: 1rem;
-            line-height: 1.5;
-            letter-spacing: 0.5px;
-        }
-
-        /* Pill-shaped Button */
-        .contact-chip {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--md-sys-color-primary-container);
-            padding: 8px 16px;
-            border-radius: var(--md-sys-shape-corner-full);
-            color: var(--md-sys-color-primary);
-            font-weight: 500;
-            text-decoration: none;
-            margin-top: 16px;
-        }
-
-        .footer {
-            margin-top: 48px;
-            font-size: 0.875rem;
-            color: var(--md-sys-color-outline);
-            text-align: center;
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(231, 229, 228, 0.8);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Legal Center</h1>
-        <p><strong>Last Updated: January 11, 2026</strong></p>
+<body class="antialiased selection:bg-stone-200 selection:text-stone-900" x-data="{ currentYear: new Date().getFullYear() }">
 
-        <section class="policy-card">
-            <h2>Master Privacy Policy</h2>
-            <p>Huggler Holdings LLC ("we," "our," or "us") is a Texas-based entity dedicated to transparent and secure software development. This Master Policy outlines our commitment to your privacy across all our digital products and entrepreneurial endeavors.</p>
-            
-            <p>We strictly adhere to the <strong>Texas Data Privacy and Security Act (TDPSA)</strong>. Our core philosophy is data minimization: we only collect the absolute minimum data necessary to provide our services.</p>
-        </section>
+    <div class="fixed inset-0 -z-10 h-full w-full bg-stone-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <div class="fixed left-0 top-0 -z-10 h-[500px] w-[500px] rounded-full bg-stone-200/50 blur-[100px] filter"></div>
+    <div class="fixed right-0 bottom-0 -z-10 h-[500px] w-[500px] rounded-full bg-stone-200/50 blur-[100px] filter"></div>
 
-        <section class="policy-card">
-            <h2>Our Privacy Commitments</h2>
-            <ul>
-                <li><strong>Transparency:</strong> We provide app-specific disclosures for every product we launch.</li>
-                <li><strong>Security:</strong> We implement industry-standard encryption for any data transmitted or stored.</li>
-                <li><strong>Texas Compliance:</strong> As a Texas LLC, we respect your rights to access, correct, and delete your personal data under state law.</li>
-            </ul>
-        </section>
+    <main class="max-w-5xl mx-auto px-6 py-20 lg:py-32">
+        
+        <header class="mb-16 gs-reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 border border-stone-200 mb-6">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-stone-500"></span>
+                </span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wider">Legal Center</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-semibold tracking-tight text-stone-900 mb-4">
+                Huggler Holdings LLC
+            </h1>
+            <p class="text-xl text-stone-500 max-w-2xl font-light">
+                Transparent and secure software development. Adhering to the highest standards of data privacy.
+            </p>
+        </header>
 
-        <section class="policy-card">
-            <h2>Contact Information</h2>
-            <p>For legal inquiries, data requests, or support for any of our applications, please contact our centralized support desk:</p>
-            <a href="mailto:contact@hugglerholdings.com" class="contact-chip">contact@hugglerholdings.com</a>
-        </section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
 
-        <div class="footer">
-            &copy; 2026 Huggler Holdings LLC | Registered in Texas, USA
-        </div>
-    </div>
-</body>
-</html>
+            <div class="glass-card md:col-span-2 rounded-3xl p-8 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group gs-reveal">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="p-3 bg-stone-100 rounded-2xl text-stone-900 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono text-stone-400 border
